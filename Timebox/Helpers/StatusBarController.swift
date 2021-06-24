@@ -20,14 +20,12 @@ class StatusBarController {
         statusBar = NSStatusBar.init()
         statusItem = statusBar.statusItem(withLength: 28.0)
         
-        if let statusBarButton = statusItem.button {
-            statusBarButton.image = #imageLiteral(resourceName: "StatusBarIcon")
-            statusBarButton.image?.size = NSSize(width: 18.0, height: 18.0)
-            statusBarButton.image?.isTemplate = true
-            
-            statusBarButton.action = #selector(togglePopover(sender:))
-            statusBarButton.target = self
-        }
+        statusItem.button?.image = #imageLiteral(resourceName: "StatusBarIcon")
+        statusItem.button?.image?.size = NSSize(width: 18.0, height: 18.0)
+        statusItem.button?.image?.isTemplate = true
+        
+        statusItem.button?.action = #selector(togglePopover(sender:))
+        statusItem.button?.target = self
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown], handler: mouseEventHandler)
     }
