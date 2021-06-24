@@ -1,9 +1,9 @@
 //
 //  EventMonitor.swift
-//  Ambar
+//  Timebox
 //
-//  Created by Anagh Sharma on 12/11/19.
-//  Copyright © 2019 Anagh Sharma. All rights reserved.
+//  Created by Matt Swieboda on 06/23/21.
+//  Copyright © 2021 Matt Swieboda. All rights reserved.
 //
 
 import Cocoa
