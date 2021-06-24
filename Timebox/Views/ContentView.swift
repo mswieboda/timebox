@@ -12,22 +12,26 @@ import AppKit
 struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("Make\nEpic\nThings")
-                .font(Font.system(size: 34.0))
+            Text("Timebox")
+                .font(Font.system(size: 33.0))
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.leading)
-                .padding(.horizontal, 16.0)
-                .padding(.vertical, 12.0)
+                .padding(.horizontal, 13.0)
+                .padding(.vertical, 13.0)
                 .frame(width: 360.0, height: 320.0, alignment: .topLeading)
+            HStack {
+                Text("15min")
+                Text("30min")
+                Text("1hr")
+            }
             Button(action: {
                 NSApplication.shared.terminate(self)
-            })
-            {
-                Text("Quit App")
-                .font(.caption)
-                .fontWeight(.semibold)
+            }) {
+                Text("Quit")
+                    .font(.caption)
+                    .fontWeight(.semibold)
             }
-            .padding(.trailing, 16.0)
+            .padding(.trailing, 13.0)
             .frame(width: 360.0, alignment: .trailing)
         }
         .padding(0)
@@ -35,9 +39,9 @@ struct ContentView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+// NOTE: Preview not working with my crappy Macbook Air, but might be unrelated
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
