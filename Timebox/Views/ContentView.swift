@@ -11,31 +11,30 @@ import AppKit
 
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Timebox")
-                .font(Font.system(size: 33.0))
-                .fontWeight(.semibold)
-                .multilineTextAlignment(.leading)
-                .padding(.horizontal, 13.0)
-                .padding(.vertical, 13.0)
-                .frame(width: 360.0, height: 320.0, alignment: .topLeading)
+        VStack {
             HStack {
-                Text("15min")
-                Text("30min")
-                Text("1hr")
+                Button(action: {
+                    // TODO: impl
+                }) {
+                    Text("5min")
+                }
+                Button(action: {
+                    // TODO: impl
+                }) {
+                    Text("15min")
+                }
+                Button(action: {
+                    // TODO: impl
+                }) {
+                    Text("30min")
+                }
+                Button(action: {
+                    // TODO: impl
+                }) {
+                    Text("1hr")
+                }
             }
-            Button(action: {
-                NSApplication.shared.terminate(self)
-            }) {
-                Text("Quit")
-                    .font(.caption)
-                    .fontWeight(.semibold)
-            }
-            .padding(.trailing, 13.0)
-            .frame(width: 360.0, alignment: .trailing)
         }
-        .padding(0)
-        .frame(width: 360.0, height: 360.0, alignment: .top)
     }
 }
 
