@@ -10,31 +10,64 @@ import SwiftUI
 import AppKit
 
 struct ContentView: View {
+    @State var duration = 5
+    @State private var timerStart: Bool = false
+    @State private var isTerminated: Bool = true
+
     var body: some View {
         VStack {
-            HStack {
-                Button(action: {
-                    // TODO: impl
-                }) {
-                    Text("5min")
+            if self.isTerminated {
+                HStack {
+                    Button(action: {
+                        startTimer(duration: 7)
+                    }) {
+                        Text("7sec")
+                    }
+                    Button(action: {
+                        startTimer(duration: 5 * 60)
+                    }) {
+                        Text("5min")
+                    }
+                    Button(action: {
+                        startTimer(duration: 15 * 60)
+                    }) {
+                        Text("15min")
+                    }
+                    Button(action: {
+                        startTimer(duration: 30 * 60)
+                    }) {
+                        Text("30min")
+                    }
+                    Button(action: {
+                        startTimer(duration: 1 * 60 * 60)
+                    }) {
+                        Text("1hr")
+                    }
                 }
-                Button(action: {
-                    // TODO: impl
-                }) {
-                    Text("15min")
-                }
-                Button(action: {
-                    // TODO: impl
-                }) {
-                    Text("30min")
-                }
-                Button(action: {
-                    // TODO: impl
-                }) {
-                    Text("1hr")
-                }
+            } else {
+                TimerView(duration: $duration, onEnded: timerTerminated, start: $timerStart)
             }
         }
+    }
+    
+    private func startTimer(duration: Int) {
+        print(">>> startTimer duration: \(duration)")
+        self.duration = duration
+        timerStart = true
+        isTerminated = false
+    }
+    
+    private func timerTerminated() {
+        print(">>> timerTerminated")
+        isTerminated = true
+        
+        showAlert()
+    }
+    
+    func showAlert() {
+        let alert = NSAlert()
+        alert.messageText = "Timeboxing is over!"
+        alert.runModal()
     }
 }
 
